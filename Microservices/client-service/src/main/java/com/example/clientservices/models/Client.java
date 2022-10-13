@@ -1,4 +1,4 @@
-package com.example.destinationservices.models;
+package com.example.clientservices.models;
 
 
 import lombok.*;
@@ -14,18 +14,21 @@ import java.util.List;
 
 @EqualsAndHashCode()
 @Entity
-@Table(name ="destination")
-public class Destination extends AbstractEntity {
+@Table(name ="client")
+public class Client extends AbstractEntity {
 
 
     @Id
     private Long id;
 
-    @Column(name = "pays")
-    private String pays;
+    @Column(name = "nom")
+    private String nom;
 
-    @Column(name ="ville")
-    private String ville;
+    @Column(name ="email")
+    private String email;
+
+    @Column(name ="nationnalité")
+    private String nationnalité;
 
 
     public void setId(Long id) {
