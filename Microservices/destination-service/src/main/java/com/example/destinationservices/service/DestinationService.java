@@ -11,7 +11,7 @@ import java.util.List;
 public class DestinationService implements IDestinationService{
 
     @Autowired
-    private DestinationRepository destinationRepository;
+     DestinationRepository destinationRepository;
 
 
     @Override

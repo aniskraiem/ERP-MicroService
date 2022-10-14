@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 
 @EqualsAndHashCode()
-@Entity
+@ Entity
 @Table(name ="destination")
 public class Destination extends AbstractEntity {
 
