@@ -1,4 +1,4 @@
-package com.example.orderms;
+package com.esprit.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
