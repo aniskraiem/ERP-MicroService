@@ -1,11 +1,13 @@
-package com.esprit.note;
+package com.esprit.coffee;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class NoteMSApplicationTests {
+class CoffeeMsApplicationTests {
 
 	@Test
 	void contextLoads() {
 	}
+
 }
