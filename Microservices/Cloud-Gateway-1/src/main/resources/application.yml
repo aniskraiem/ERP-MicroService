@@ -1,0 +1,30 @@
+server:
+  port: 8099
+
+spring:
+  application:
+    name: api-gateway
+    
+  cloud:
+    gateway:
+      routes:
+      - id: micro_service_user
+        uri: http://host.docker.internal:8086/
+        predicates:
+            - Path=/userms/**
+      - id: micro_service_employe
+        uri: http://host.docker.internal:8083/
+        predicates:
+            - Path=/employems/**
+        
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+
+  
+      
