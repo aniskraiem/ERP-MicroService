@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+order:
+build: ../../OrderMS
+ports:
+- "8761:8761"
+image: "order-service"
+Coffee:
+build: ../../CoffeeMS
+ports:
+- "3001:8080"
+image: "coffee-service"
+employe:
+build: ../../EmployeMS
+ports:
+- "8080:8080"
+image: "employe-service"
+note:
+build: ../../NoteMS
+ports:
+- "8180:8180"
+image: "note-service"
