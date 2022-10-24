@@ -14,10 +14,10 @@ import tn.esprit.spring.services.userService;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class MicroServiceUsersApplication {
+public class UserMSApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroServiceUsersApplication.class, args);
+		SpringApplication.run(UserMSApplication.class, args);
 	}
 	
 	@Bean

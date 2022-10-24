@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8082
-ADD /target/microserviceusers.jar microserviceusers.jar
-ENTRYPOINT ["java", "-jar", "microserviceusers.jar"]
+ADD /target/user-service-0.0.1-SNAPSHOT.jar user-service-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar", "user-service-0.0.1-SNAPSHOT.jar"]

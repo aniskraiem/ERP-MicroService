@@ -1,0 +1,42 @@
+version: '3'
+services:
+  mysqldb:
+    platform: linux/x86_64
+    image: "mysql:5.6"
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: msusers
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: mysql        
+  discovery:
+    image: discovery
+    build: Eureka-Server
+    ports:
+      - 8761:8761  
+  micro_service_user:
+    image: micro_service_user
+    build: MicroServiceUsers
+    depends_on:
+      - discovery
+      - mysqldb 
+    ports:
+      - 8082:8082 
+  micro_service_employe:
+    image: micro_service_employe
+    build: MicroServiceEmploye
+    depends_on:
+      - discovery
+      - mysqldb 
+    ports:
+      - 8083:8083
+  api-gateway:
+    image: api-gateway
+    build: Cloud-Gateway-1
+    depends_on:
+      - discovery
+    ports:
+      - 8099:8099
+    
+      
+  
