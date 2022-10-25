@@ -1,42 +1,65 @@
 version: '3'
 services:
   mysqldb:
-    platform: linux/x86_64
     image: "mysql:5.6"
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
-      MYSQL_DATABASE: msusers
-      MYSQL_PASSWORD: mysql
-      MYSQL_ROOT_PASSWORD: mysql        
+      MYSQL_DATABASE: coffeehousems
+       
   discovery:
-    image: discovery
-    build: Eureka-Server
+    image: f9dcb458a294
+    build: EurekaServer
     ports:
-      - 8761:8761  
-  micro_service_user:
-    image: micro_service_user
-    build: MicroServiceUsers
+      - 8762:8761  
+  user-service:
+    image: a170725ede57
+    build: user-service
     depends_on:
       - discovery
       - mysqldb 
     ports:
-      - 8082:8082 
-  micro_service_employe:
-    image: micro_service_employe
-    build: MicroServiceEmploye
+      - 8086:8086 
+  coffee-service:
+    image: 1c2ba7237e1f
+    build: coffee-service
     depends_on:
       - discovery
       - mysqldb 
     ports:
-      - 8083:8083
+      - 8080:8080
+      
+  note-service:
+    image: 0dcabe7ae39d
+    build: note-service
+    depends_on:
+      - discovery
+      - mysqldb 
+    ports:
+      - 8087:8087
+  order-service:
+    image: 0d289aeea96f
+    build: order-service
+    depends_on:
+      - discovery
+      - mysqldb 
+    ports:
+      - 8089:8089
+  employe-service:
+    image: 645a013473bc
+    build: employe-service
+    depends_on:
+      - discovery
+      - mysqldb 
+    ports:
+      - 8085:8085
   api-gateway:
-    image: api-gateway
-    build: Cloud-Gateway-1
+    image: 9f39be698498
+    build: api-gateway
     depends_on:
       - discovery
     ports:
-      - 8099:8099
+      - 8199:8099
     
       
   

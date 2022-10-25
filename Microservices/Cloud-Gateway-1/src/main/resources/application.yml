@@ -8,14 +8,26 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: micro_service_user
+      - id: user-service
         uri: http://host.docker.internal:8086/
         predicates:
             - Path=/userms/**
-      - id: micro_service_employe
-        uri: http://host.docker.internal:8083/
+      - id: employe-service
+        uri: http://host.docker.internal:8085/
         predicates:
             - Path=/employems/**
+      - id: coffee-service
+        uri: http://host.docker.internal:8080/
+        predicates:
+          - Path=/coffeems/**
+      - id: note-service
+        uri: http://host.docker.internal:8087/
+        predicates:
+          - Path=/notems/**
+      - id: order-service
+        uri: http://host.docker.internal:8089/
+        predicates:
+          - Path=/orderms/**
         
 eureka:
   client:
